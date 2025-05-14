@@ -1,0 +1,90 @@
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Interactif</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <!-- Navbar fixe -->
+    <nav
+      id="navbar"
+      class="hidden fixed top-0 left-0 right-0 bg-white shadow p-4 flex justify-between items-center"
+    >
+      <div id="user-info" class="text-lg font-medium"></div>
+      <div id="live-score" class="text-lg font-medium"></div>
+    </nav>
+
+    <!-- Contenu centré avec padding top pour navbar -->
+    <div class="pt-20 flex items-start justify-center px-4">
+      <div
+        id="app-container"
+        class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md text-center"
+      >
+        <!-- 1. Formulaire de saisie nom & email -->
+        <form id="user-form" class="flex flex-col space-y-4">
+          <h1 class="text-2xl font-bold">Bienvenue au Quiz</h1>
+          <input
+            id="name-input"
+            type="text"
+            placeholder="Votre nom"
+            required
+            class="border px-4 py-2 rounded"
+          />
+          <input
+            id="email-input"
+            type="email"
+            placeholder="Votre email"
+            required
+            class="border px-4 py-2 rounded"
+          />
+          <button
+            type="submit"
+            class="bg-indigo-500 text-white px-6 py-2 rounded-full hover:bg-indigo-600 transition"
+          >
+            Commencer
+          </button>
+        </form>
+
+        <!-- 2. Quiz -->
+        <div id="quiz-container" class="hidden">
+          <h1 class="text-2xl font-bold mb-6">Quiz Interactif</h1>
+          <div id="question-container" class="mb-6">
+            <div id="question" class="text-lg font-medium mb-4"></div>
+            <div id="choices" class="space-y-3"></div>
+          </div>
+          <div class="flex justify-between">
+            <button
+              id="prev-btn"
+              class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition"
+            >
+              Précédent
+            </button>
+            <button
+              id="next-btn"
+              class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition"
+            >
+              Suivant
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Score final -->
+        <div id="score-container" class="hidden mt-6">
+          <p id="score-text" class="text-xl mb-4"></p>
+          <button
+            id="restart-btn"
+            class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"
+          >
+            Recommencer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
